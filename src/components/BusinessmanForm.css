@@ -1,0 +1,76 @@
+
+.businessman-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+    background: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .businessman-form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  .form-row {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .form-field {
+    flex: 1;
+    margin-bottom: 15px;
+    margin-right: 10px;
+  }
+  
+  .form-field label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .form-field input[type="text"],
+  .form-field input[type="tel"],
+  .form-field input[type="email"],
+  .form-field input[type="date"],
+  .form-field select {
+    width: calc(100% - 16px);
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border-radius: 5px;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .form-actions button[type="submit"] {
+    background-color: #66bb6a;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .form-actions button[type="submit"]:hover {
+    background-color: #43a047;
+  }
+  
+  .form-actions button[type="button"] {
+    background-color: #f07c7c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .form-actions button[type="button"]:hover {
+    background-color: #e06666;
+  }
+  

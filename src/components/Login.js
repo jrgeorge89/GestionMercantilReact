@@ -1,20 +1,31 @@
+
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../redux/actions/authActions';
+import { useNavigate } from 'react-router-dom'; 
 import './Login.css';
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [acceptTerms, setAcceptTerms] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const dispatch = useDispatch();
+  const navigate = useNavigate(); 
 
   const handleSubmit = (event) => {
     event.preventDefault();
     if (acceptTerms) {
-      dispatch(login(email, password));
+      dispatch(login(email, password))
+        .then(() => {
+          navigate('/home'); 
+        })
+        .catch((error) => {
+          setErrorMessage('Error durante el inicio de sesión, por favor verifica tus datos.');
+          console.error('Error during login:', error.message);
+        });
     } else {
-      alert("Debe aceptar los términos y condiciones");
+      setErrorMessage('Debe aceptar los términos y condiciones');
     }
   };
 
@@ -29,7 +40,8 @@ const Login = () => {
       </div>
       <div className="login-body">
         <form onSubmit={handleSubmit} className="login-form">
-          <h2>Debes iniciar sesión para acceder a la plataforma</h2>
+          <h2>Debes iniciar sesión para acceder al sistema</h2>
+          {errorMessage && <p className="error-message">{errorMessage}</p>}
           <div className="form-field">
             <label>Correo Electrónico</label>
             <input
